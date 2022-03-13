@@ -1,38 +1,36 @@
-
 // variable
 var deposit = 400;
 // Condition
 
-if(deposit > 500){
+if (deposit > 500) {
 
 }
 
 
-if(deposit < 200){
+if (deposit < 200) {
 
 }
 
 
-if(deposit == 500){
+if (deposit == 500) {
 
 }
 
 
-if(deposit != 500){
+if (deposit != 500) {
 
 }
 
 
-if(deposit >= 500){
+if (deposit >= 500) {
 
 }
 
-if(deposit <= 500){
+if (deposit <= 500) {
+
+} else {
 
 }
- else {
-
- }
 
 //  Array
 
@@ -45,11 +43,11 @@ number[2] = 555;
 // check whether 222 include in the array
 // i can do true false condition work using this .
 
-if (number.indexOf(2)) != -1 {
-    
+if (number.indexOf(2) != -1) {
+
 }
 if (number.includes(222)) {
-    
+
 }
 
 // loop
@@ -57,21 +55,21 @@ if (number.includes(222)) {
 
 
 for (const numbers of number) {
-    
+
 }
 
 //function
 
 function fullName(first, second) {
     const name = first + '' + second;
-    }
+}
 const person = fullName('Rahim', 'kaka');
 
 // Object
 
 const bottle = {
 
-    color = 'yellow',
-    price = 250,
-    
+    color : 'yellow',
+    price : 250,
+
 }
