@@ -16,3 +16,6 @@ const fullOld = first + ' ' + last; //normal away
 const fullNew = `${first} ${last}. Has money ${friensds.length * 400}. He livs in Dhaka. `; //ES6
 
 console.log(fullNew);
+
+
+

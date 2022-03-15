@@ -1,13 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+
+    </title>
 </head>
-<body>
-    <h2>Hi i am reja</h2>
+
+<body style="text-align:center;" id="body">
+    <h1 style="color:green;">
+        Slash Problem
+    </h1>
+    <p id="input-String" style="font-size: 15px;
+			font-weight: bold;">
+    </p>
+    <button onclick="getElements()">
+        Click here
+    </button>
+    <br>
+    <br>
+    <br>
+    <span>Output:<p id="output-string">? </p> </span>
     
+    <script>
+         const input_value = document.getElementById("input-String");
+         const output_value = document.getElementById("output-string");
+         const string_URL = "https://www.sample.com/api/users/123";
+
+            input_value.innerHTML = string_URL;
+
+            function getElements() {
+            output_value.innerHTML = string_URL.substring(string_URL.lastIndexOf('/') + 1);
+            }
+            </script>
 </body>
+
 </html>
