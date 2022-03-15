@@ -35,6 +35,9 @@ const { first, second, third} = company.web.tech;
 
  console.log(Cname, id, name, food, work, employee, framework, first, second, third);
 
-// Optional chaining is redious unexpected errop.
+// Optional chaining is redious unexpected error.
 
 console.log(company?.backend?.web?.tech);
+
+
+
