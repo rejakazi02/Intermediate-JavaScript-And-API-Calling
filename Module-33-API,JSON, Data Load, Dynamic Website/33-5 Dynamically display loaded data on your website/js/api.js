@@ -35,12 +35,22 @@ function loadPosts() {
 
 function displayUsers(data) {
 
+  //basically i call the ul id from index file
+
   const ul = document.getElementById('users');
   // ul.innerText = data;
   for (const user of data) {
+
     console.log(user);
+
+    // i create li for each data 
+
     const li = document.createElement('li');
+    // every value insert here 
     li.innerText = user.name;
+
+    // and  at last i connect of li with ul 
+
     ul.appendChild(li);
 
 
