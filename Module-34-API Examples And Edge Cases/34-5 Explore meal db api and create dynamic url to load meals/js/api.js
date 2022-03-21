@@ -1,24 +1,30 @@
 const searchFood = () => {
 
-    const searchfField = document.getElementById('search-field');
-    const searchText = searchfField.value;
-    searchfField.value = '';
+  const searchfField = document.getElementById('search-field');
+  const searchText = searchfField.value;
+  searchfField.value = '';
 
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-    fetch(url)
+  const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
+  fetch(url)
     .then(res => res.json())
     .then(data => displaySearchResult(data.meals))
-   
+
 }
+
+// this function is useing for showing data
 searchFood();
 
 const displaySearchResult = meals => {
- const searchResult = document.getElementById('card-section');
- console.log(meals)
- meals.forEach(meal => {
+  const searchResult = document.getElementById('card-section');
+
+// search field null here 
+
+  searchResult.innerHTML = '';
+  console.log(meals)
+  meals.forEach(meal => {
     const cardDiv = document.createElement('div');
     cardDiv.classList.add('col');
-    cardDiv.innerHTML =` 
+    cardDiv.innerHTML = ` 
     <div class="card h-100">
         <img src="${meal.strMealThumb}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -27,13 +33,13 @@ const displaySearchResult = meals => {
           <p class="card-text">${meal.strInstructions.slice(0, 200)}</p>
         </div>
         <div class="card-footer text-center bg-skyblue">
-   <a class=" " href="${meal.strYoutube}">Making video</a>
+        <a class=" " href="${meal.strYoutube}">Making video</a>
         </div>
       </div>
     `;
 
-searchResult.appendChild(cardDiv);
+    searchResult.appendChild(cardDiv);
 
- });
+  });
 
 }
