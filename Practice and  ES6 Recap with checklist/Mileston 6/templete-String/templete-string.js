@@ -23,3 +23,5 @@ const tempeleVariable = `Redmi Note 10 Full Specifications. Brand name ${name}, 
 console.log(tempeleVariable);
 
 
+
+
