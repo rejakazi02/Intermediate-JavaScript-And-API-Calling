@@ -1,28 +1,33 @@
 const searchButton = () => {
-  const searchField = document.getElementById("search-field");
-  searchText = searchField.value;
 
-//   const emptyMesseges = document.getElementById("empty-Messege");
-  //  emptyMesseges.value = '';
+
+    const productDetailDiv = document.getElementById("productResult").style.display = "none";
+
+
+  const searchField = document.getElementById("search-field");
+ const searchText = searchField.value;
+ 
+  const emptyMesseges = document.getElementById("empty-Messege");
+
   searchField.value = "";
-  // emptyMesseges.innerText = "This product is not aviable right now 1.";
-//   if (searchText == "") {
-//     // emptyMesseges.innerText = "This product is not aviable right now.";
-//   } else {
-    // emptyMesseges.innerText = "";
+ 
+  if (searchText == "") {
+    emptyMesseges.innerText = "Please Search your Products.";
+  } else {
+    emptyMesseges.innerText = " Search Successfull";
    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
       .then((res) => res.json())
       .then((datas) => displayData(datas.data))
-//   }
+  }
 }
 
-searchButton();
+
 
 const displayData = (datas) => {
   const searchResult = document.getElementById("search-result");
   searchResult.innerHTML = ''; 
-
+searchResult.value = '';
   console.log(datas)
 
   datas.forEach(data => {
@@ -48,7 +53,7 @@ const displayData = (datas) => {
 <div id="detaileBtn">
 
 <button onclick="detailsButton('${data.slug}', '${data.image}')"
-class="btn btn-outline-success px-5" >
+class="btn btn-outline-success px-5" id="detailsButton12">
 Details
 </button>
 </div>
@@ -64,7 +69,7 @@ Details
 
 
 const detailsButton = (pSlug) => {
-
+    const productDetailDiv = document.getElementById("productResult").style.display = "block";
     console.log(pSlug)
 const url = `https://openapi.programming-hero.com/api/phone/${pSlug}`;
 fetch(url)
@@ -77,7 +82,6 @@ fetch(url)
 
 const Pdetails = (proDatas) => {
 const productResults = document.getElementById('productResult');
-
 
 
 productResults.innerHTML = '';
