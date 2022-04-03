@@ -1,7 +1,7 @@
 const searchButton = () => {
   const productDetailDiv = (document.getElementById("productResult").style.display = "none");
 
- 
+
 
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
@@ -17,9 +17,7 @@ const searchButton = () => {
     emptyMesseges.innerText = "Please Search Your Products";
 
     const emptyMesseges11 = document.getElementById("empty-Messege11").style.display = 'none';
-  } 
-  
-  else {
+  } else {
 
     const emptyMesseges11 = document.getElementById("empty-Messege11").style.display = 'block';
     emptyMesseges.innerText = " ";
@@ -41,9 +39,7 @@ const displayData = (datas) => {
 
   if (datas == "") {
     emptyMesseges11.innerText = "Enter your valid search";
-  } 
-  
-  else {
+  } else {
     emptyMesseges11.innerText = " Search Successfull";
 
     // try case start here
@@ -102,7 +98,7 @@ const detailsButton = (pSlug) => {
 
   const productDetailDiv = (document.getElementById("productResult").style.display = "block");
   const emptyMesseges11 = (document.getElementById("empty-Messege11").style.display = "none");
-  
+
   console.log(pSlug);
   const url = `https://openapi.programming-hero.com/api/phone/${pSlug}`;
   fetch(url)
