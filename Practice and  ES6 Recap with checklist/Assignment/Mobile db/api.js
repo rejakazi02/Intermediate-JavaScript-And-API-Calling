@@ -54,7 +54,7 @@ const displayData = (datas) => {
         // index check and break
 
         console.log(inde);
-        if (inde === 50) {
+        if (inde === 15) {
           throw "Break";
         }
 
