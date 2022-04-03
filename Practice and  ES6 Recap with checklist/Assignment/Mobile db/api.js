@@ -1,59 +1,66 @@
 const searchButton = () => {
+  const productDetailDiv = (document.getElementById("productResult").style.display = "none");
 
-
-  const productDetailDiv = document.getElementById("productResult").style.display = "none";
-
+ 
 
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
 
   const emptyMesseges = document.getElementById("empty-Messege");
- emptyMesseges.style.display = "block";
+  emptyMesseges.style.display = "block";
 
   searchField.value = "";
 
-// saerch button condition
+  // saerch button condition
 
   if (searchText == "") {
-    emptyMesseges.innerText = "Please Search your Products.";
+    emptyMesseges.innerText = "Please Search Your Products";
+
+    const emptyMesseges11 = document.getElementById("empty-Messege11").style.display = 'none';
   } 
   
   else {
-    emptyMesseges.innerText = " Search Successfull";
-    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`
+
+    const emptyMesseges11 = document.getElementById("empty-Messege11").style.display = 'block';
+    emptyMesseges.innerText = " ";
+    const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     fetch(url)
       .then((res) => res.json())
-      .then((datas) => displayData(datas.data))
+      .then((datas) => displayData(datas.data));
   }
-}
-
-
+};
 
 const displayData = (datas) => {
   const searchResult = document.getElementById("search-result");
-  searchResult.innerHTML = '';
-  searchResult.value = '';
-  console.log(datas)
+  searchResult.innerHTML = "";
+  searchResult.value = "";
+  console.log(datas);
 
+  const productDetailDiv = (document.getElementById("productResult").style.display = "none");
+  const emptyMesseges11 = document.getElementById("empty-Messege11");
 
-// try case start here 
-
-  try {
-
-
-    datas.forEach((data, inde) => {
-
-// index check and break 
-
-      console.log(inde)
-      if (inde === 3) {
-        throw 'Break';
+  if (datas == "") {
+    emptyMesseges11.innerText = "Enter your valid search";
+  } 
   
-      }
-     
-      const div = document.createElement("div");
-      div.classList.add("col");
-      div.innerHTML = `
+  else {
+    emptyMesseges11.innerText = " Search Successfull";
+
+    // try case start here
+
+    try {
+      // datas.slice(0,3).forEach((data, inde) =>  2nd away for data slice
+      datas.forEach((data, inde) => {
+        // index check and break
+
+        console.log(inde);
+        if (inde === 50) {
+          throw "Break";
+        }
+
+        const div = document.createElement("div");
+        div.classList.add("col");
+        div.innerHTML = `
       <div class="container-fluid card card-color">
       <div class="d-flext">
           <div class="d-flext justify-content-center">
@@ -80,57 +87,42 @@ const displayData = (datas) => {
   </div>
   
   `;
-  
-      searchResult.appendChild(div);
 
-     
-  
-    })
+        searchResult.appendChild(div);
+      });
+    } catch (e) {
+      // catch Pooerty
 
-
+      if (e !== "Break") throw e;
+    }
   }
-  
-  // catch Pooerty 
-
-  catch (e) {
-    if (e !== 'Break') throw e
-  }
-
-  
- 
-}
-
-
+};
 
 const detailsButton = (pSlug) => {
-  const productDetailDiv = document.getElementById("productResult").style.display = "block";
-  const emptyMesseges = document.getElementById("empty-Messege").style.display = "none";
-  console.log(pSlug)
+
+  const productDetailDiv = (document.getElementById("productResult").style.display = "block");
+  const emptyMesseges11 = (document.getElementById("empty-Messege11").style.display = "none");
+  
+  console.log(pSlug);
   const url = `https://openapi.programming-hero.com/api/phone/${pSlug}`;
   fetch(url)
-    .then(rer => rer.json())
-    .then(dDatas => Pdetails(dDatas.data))
-
-
-}
-
+    .then((rer) => rer.json())
+    .then((dDatas) => Pdetails(dDatas.data));
+};
 
 const Pdetails = (proDatas) => {
-  const productResults = document.getElementById('productResult');
+  const productResults = document.getElementById("productResult");
 
-  productResults.innerHTML = '';
+  productResults.innerHTML = "";
 
-  const proDiv = document.createElement('div');
-  proDiv.classList.add('card');
+  const proDiv = document.createElement("div");
+  proDiv.classList.add("card");
 
-// release date null condition 
+  // release date null condition
 
   let relesrDate = proDatas.releaseDate;
-  if (relesrDate == '') {
-
+  if (relesrDate == "") {
     relesrDate = "No date found";
-
-
   }
 
   proDiv.innerHTML = `
@@ -171,7 +163,5 @@ const Pdetails = (proDatas) => {
 
       `;
 
-
   productResults.appendChild(proDiv);
-
-}
+};
