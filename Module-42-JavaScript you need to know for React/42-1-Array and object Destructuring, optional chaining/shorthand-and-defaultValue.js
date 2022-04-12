@@ -1,5 +1,7 @@
 
+
 // Shorthand in JavaScript 
+
 
 
 let cat = 'Miaow';
@@ -38,5 +40,5 @@ function multiply(a, b = 2) {
   console.log(multiply(5));
   // expected output: 10
 
-  
+
   
